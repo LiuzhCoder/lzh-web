@@ -40,11 +40,18 @@ public class Main {
                     }
                 }else{
                     fileInputStream = new FileInputStream(file);
-                    //写文件
-
                     //响应行
                     outputStream.write("HTTP/1.1 200 OK\r\n".getBytes(StandardCharsets.UTF_8));
                     //响应头
+                    String type = "text/html;";
+                    if (file.getName().contains(".jpg")){
+                        type = "image/jpg;";
+                    }else if (file.getName().contains(".css")){
+                        type = "text/css;";
+                    }else if (file.getName().contains(".js")){
+                        type = "text/js;";
+                    }
+                    outputStream.write(("Content-Type:"+type+"charset=utf-8\r\n").getBytes(StandardCharsets.UTF_8));
                     outputStream.write(("Content-Length:"+file.length()+"\r\n").getBytes(StandardCharsets.UTF_8));
                     //响应空行
                     outputStream.write("\r\n".getBytes(StandardCharsets.UTF_8));
