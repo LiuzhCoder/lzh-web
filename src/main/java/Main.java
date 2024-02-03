@@ -33,7 +33,7 @@ public class Main {
                 //判断文件是否存在,不存在直接返回 404
                 if (!file.exists()){
                     fileInputStream = new FileInputStream(STATIC_RESOURCE_PATH+PAGE_NOT_FOUND_404_PATH);
-                    int b = 0;
+                    int b;
                     byte[] bytes = new byte[1024];
                     while((b=fileInputStream.read(bytes))!=-1){
                         outputStream.write(bytes,0,b);

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+    <!--servlet与servlet-mapping标签需同时使用-->
+    <!--创建servlet标签-->
+    <servlet>
+        <!--给指定的servlet类起一个名字-->
+        <servlet-name>demo01</servlet-name>
+        <!--servlet类的全限定路径-->
+        <servlet-class>Hello</servlet-class>
+        <!--servlet初始化加载优先级(0~10)-->
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+
+    <!--创建servlet映射标签-->
+    <servlet-mapping>
+        <!--映射到哪个servlet，与上面一致-->
+        <servlet-name>demo01</servlet-name>
+        <!--客户端访问路径 localhost:8080/项目名称/demo-->
+        <url-pattern>/index.jsp</url-pattern>
+    </servlet-mapping>
+
+</web-app>
+
